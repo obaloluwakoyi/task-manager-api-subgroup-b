@@ -1,7 +1,8 @@
-# Use this workspace to collaborate
 workspace:
   id: 15255537-eea4-495e-8b79-0b0644774289
-
 localResources:
   collections:
-    - ..\Task Manager API - Subgroup B.postman_collection.json
+    - ../postman/collections/Task Manager API - Subgroup B
+cloudResources:
+  collections:
+    ../postman/collections/Task Manager API - Subgroup B: 55213358-512657c5-2e76-4975-b0d9-a16316f8c82b

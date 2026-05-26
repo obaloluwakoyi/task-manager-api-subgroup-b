@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:5000/api/tasks
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"title\": \"Finish Project Presentation\",\r
+
+    \  \"description\": \"Create the 5 slides for Thursday\"\r
+
+    }"
+order: 3000
