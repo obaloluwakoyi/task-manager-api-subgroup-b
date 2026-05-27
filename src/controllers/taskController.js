@@ -47,27 +47,26 @@ const getTaskById = (req, res) => {
 const createTask = (req, res) => {
   const { title, description, priority, dueDate } = req.body;
 
+  // Basic validation requirement
+  if (!title) {
+    return res.status(400).json({ message: 'Title is required' });
+  }
+
+  // Priority input fallback protection
+  const validPriorities = ['low', 'medium', 'high'];
+  const taskPriority = validPriorities.includes(priority?.toLowerCase()) ? priority.toLowerCase() : 'medium';
+
   const newTask = {
-    id:tasks[tasks.length-1].id + 1, 
+    id: tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1, 
     title,
-    description,
-    priority,
-    dueDate,
+    description: description || '',
+    priority: taskPriority,
+    dueDate: dueDate || null,
     status: 'pending', 
-
-
-
-    
-    // ------------------------------------------
-    // 📌 MEMBER B SLOT: Priority & Due Dates (Creation)
-    // Task 1: Extract 'priority' and 'dueDate' from req.body.
-    // Task 2: Add them as active keys right here inside this object.
-    // ------------------------------------------
-
   };
 
   tasks.push(newTask);
-  res.status(201).json({newTask});
+  res.status(201).json(newTask);
 };
 
 // ==========================================
@@ -75,7 +74,7 @@ const createTask = (req, res) => {
 // ==========================================
 const updateTask = (req, res) => {
   const { id } = req.params;
-  const { title, description, status } = req.body;
+  const { title, description, status, priority, dueDate } = req.body;
 
   const task = tasks.find(t => t.id === parseInt(id));
 
@@ -84,16 +83,20 @@ const updateTask = (req, res) => {
   }
 
   // Baseline updates
-  if (title) task.title = title;
-  if (description) task.description = description;
-  if (status) task.status = status;
+  if (title !== undefined) task.title = title;
+  if (description !== undefined) task.description = description;
+  if (status !== undefined) task.status = status;
 
   // ------------------------------------------
   // 📌 MEMBER B SLOT: Priority & Due Dates (Update)
-  // Task: Check if req.body.priority or req.body.dueDate exist.
-  // Task: If they exist, update those fields on the target 'task' object.
   // ------------------------------------------
-
+  if (priority !== undefined) {
+    const validPriorities = ['low', 'medium', 'high'];
+    if (validPriorities.includes(priority.toLowerCase())) {
+      task.priority = priority.toLowerCase();
+    }
+  }
+  if (dueDate !== undefined) task.dueDate = dueDate;
 
   res.json(task);
 };
