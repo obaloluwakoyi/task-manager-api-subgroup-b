@@ -12,7 +12,7 @@ const createTask =  (req, res, next) => {
         next();
     }
 
-    if (!["low", "medium", "high"].includes(priority)) {
+    if (!['low', 'medium', 'high'].includes(priority)) {
         return res.status(400).json({
             message: "Priority must be low, medium, or high"
         });
@@ -27,7 +27,6 @@ const createTask =  (req, res, next) => {
     };
     tasks.push(newTask);
     // This returns a 201 status code indicating that a new resource has been created, along with the newly created task in JSON format.
-    res.send("Task created successfully");
     res.status(201).json(newTask);
 };
 // getAllTasks simply returns the entire list of tasks in the response.
