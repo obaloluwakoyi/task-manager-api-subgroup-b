@@ -9,7 +9,9 @@ const tasks = [
     id: 1,
     title: "Setup Project Architecture",
     description: "Initialize Express MVC folders and Git configurations.",
-    status: "completed"
+    status: "completed",
+    priority: "",
+    dueDate: ""
     // 📌 NOTE FOR MEMBER B: 
     // Once your feature is live, new items will automatically 
     // include 'priority' and 'dueDate' fields here.
@@ -18,7 +20,9 @@ const tasks = [
     id: 2,
     title: "Design Postman Collection",
     description: "Export global routes for team endpoint validation.",
-    status: "completed"
+    status: "completed",
+    priority: "",
+    dueDate: ""
   }
 ];
 

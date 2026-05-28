@@ -1,4 +1,5 @@
 const tasks = require('../data/tasks');
+const taskRoutes = require('../routes/taskRoutes');
 
 // ==========================================
 // 🛠️ GET ALL TASKS (Members C & D Domain)
@@ -44,13 +45,18 @@ const getTaskById = (req, res) => {
 // 🛠️ CREATE A NEW TASK (Member B Domain)
 // ==========================================
 const createTask = (req, res) => {
-  const { title, description } = req.body;
+  const { title, description, priority, dueDate } = req.body;
 
   const newTask = {
-    id: tasks.length + 1,
+    id:tasks[tasks.length-1].id + 1, 
     title,
     description,
+    priority,
+    dueDate,
     status: 'pending', 
+
+
+
     
     // ------------------------------------------
     // 📌 MEMBER B SLOT: Priority & Due Dates (Creation)
@@ -61,7 +67,7 @@ const createTask = (req, res) => {
   };
 
   tasks.push(newTask);
-  res.status(201).json(newTask);
+  res.status(201).json({newTask});
 };
 
 // ==========================================

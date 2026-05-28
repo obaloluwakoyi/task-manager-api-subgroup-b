@@ -2,23 +2,24 @@
   "name": "task-manager-api-subgroup-b",
   "version": "1.0.0",
   "description": "Group 1 - Subgroup B Task Manager API",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "keywords": [],
+  "homepage": "https://github.com/obaloluwakoyi/task-manager-api-subgroup-b#readme",
+  "bugs": {
+    "url": "https://github.com/obaloluwakoyi/task-manager-api-subgroup-b/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/obaloluwakoyi/task-manager-api-subgroup-b.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
+  "author": "",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/obaloluwakoyi/task-manager-api-subgroup-b/issues"
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/obaloluwakoyi/task-manager-api-subgroup-b#readme",
   "dependencies": {
     "express": "^5.2.1"
-  }
+  },
+  "devDependencies": {}
 }
