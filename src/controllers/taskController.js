@@ -13,6 +13,50 @@ const getAllTasks = (req, res) => {
   // ------------------------------------------
   // WRITE YOUR FILTERING & SORTING CODE HERE:
 
+  // ==========================================
+// FILTER BY STATUS
+// Example:
+// /tasks?status=pending
+// ==========================================
+if (req.query.status) {
+  filteredTasks = filteredTasks.filter(task =>
+    task.status.toLowerCase() === req.query.status.toLowerCase()
+  );
+}
+
+// ==========================================
+// FILTER BY PRIORITY
+// Example:
+// /tasks?priority=high
+// ==========================================
+if (req.query.priority) {
+  filteredTasks = filteredTasks.filter(task =>
+    task.priority.toLowerCase() === req.query.priority.toLowerCase()
+  );
+}
+
+// ==========================================
+// SORT TASKS
+// Example:
+// /tasks?sortBy=dueDate
+// ==========================================
+if (req.query.sortBy) {
+  const sortField = req.query.sortBy;
+
+  filteredTasks.sort((a, b) => {
+
+    // Special handling for dates
+    if (sortField === 'dueDate') {
+      return new Date(a.dueDate) - new Date(b.dueDate);
+    }
+
+    // Generic sorting for strings/numbers
+    if (a[sortField] < b[sortField]) return -1;
+    if (a[sortField] > b[sortField]) return 1;
+
+    return 0;
+  });
+}
 
 
   // ------------------------------------------
