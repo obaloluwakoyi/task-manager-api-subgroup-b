@@ -18,18 +18,7 @@ const getAllTasks = (req, res) => {
 
   // ------------------------------------------
   // 📌 MEMBER D SLOT: 
-  const { search } = req.query;
 
-  if (search) {
-    const keyword = search.toLowerCase();
-
-    filteredTasks = filteredTasks.filter(task => {
-      const title = task.title.toLowerCase();
-      const description = task.description.toLowerCase();
-
-      return title.includes(keyword) || description.includes(keyword);
-    });
-  }
 
   // ------------------------------------------
   // WRITE YOUR KEYWORD SEARH CODE HERE:
