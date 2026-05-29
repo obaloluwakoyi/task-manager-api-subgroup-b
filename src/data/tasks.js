@@ -10,7 +10,7 @@ const tasks = [
     title: "Setup Project Architecture",
     description: "Initialize Express MVC folders and Git configurations.",
     status: "completed",
-    priority: "",
+    priority: "high",
     dueDate: ""
     // 📌 NOTE FOR MEMBER B: 
     // Once your feature is live, new items will automatically 
