@@ -17,11 +17,22 @@ const getAllTasks = (req, res) => {
 
 
   // ------------------------------------------
-  // 📌 MEMBER D SLOT: Keyword Search
-  // Task 1: Parse req.query.search (e.g., ?search=database)
-  // Task 2: Filter 'filteredTasks' where title or description includes the search string.
+  // 📌 MEMBER D SLOT: 
+  /const(search)= req.query;
+  if(search)(
+    const keyword=search.toLowerCase();
+    filtetedTasks=filteredTasks.filter(task=>(
+      const title=task.title.tolowercase();
+      const description=task.description.toLowerCase();
+      return(
+        title.includes (keyword)||
+        description.includes(keyword)
+      );
+    ));
+  }
+
   // ------------------------------------------
-  // WRITE YOUR KEYWORD SEARCH CODE HERE:
+  // WRITE YOUR KEYWORD SEARH CODE HERE:
 
 
 
