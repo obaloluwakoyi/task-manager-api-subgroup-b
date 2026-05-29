@@ -1,5 +1,4 @@
 const tasks = require('../data/tasks');
-const taskRoutes = require('../routes/taskRoutes');
 
 // ==========================================
 // 🛠️ GET ALL TASKS (Members C & D Domain)
@@ -21,9 +20,16 @@ const getAllTasks = (req, res) => {
   // Task 1: Parse req.query.search (e.g., ?search=database)
   // Task 2: Filter 'filteredTasks' where title or description includes the search string.
   // ------------------------------------------
-  // WRITE YOUR KEYWORD SEARCH CODE HERE:
+  const search = req.query.search?.trim().toLowerCase();
 
+  if (search) {
+    filteredTasks = filteredTasks.filter(task => {
+      const title = task.title?.toLowerCase() || '';
+      const description = task.description?.toLowerCase() || '';
 
+      return title.includes(search) || description.includes(search);
+    });
+  }
 
   res.json(filteredTasks);
 };
