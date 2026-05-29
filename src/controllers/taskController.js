@@ -17,9 +17,9 @@ const getAllTasks = (req, res) => {
 
 
   // ------------------------------------------
-  // 📌 MEMBER D SLOT: 
-
-
+  // 📌 MEMBER D SLOT: Keyword Search
+  // Task 1: Parse req.query.search (e.g., ?search=database)
+  // Task 2: Filter 'filteredTasks' where title or description includes the search string.
   // ------------------------------------------
   // WRITE YOUR KEYWORD SEARH CODE HERE:
 
